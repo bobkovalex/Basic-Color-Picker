@@ -3,7 +3,7 @@
  * Copyright (c) 2018 Alex Bobkov <lilalex85@gmail.com>
  * Licensed under MIT
  * @author Alexandr Bobkov
- * @version 0.1.0
+ * @version 0.2.0
  */
 
 $(document).ready(function(){
@@ -36,32 +36,32 @@ $(document).ready(function(){
 	**/
 	$.fn.bcPicker = function (options) {
 
-			return this.each(function () {
-				var elem 					= $(this),
-						colorSet			= $.extend({}, $.fn.bcPicker.defaults, options),
-						defaultColor	= $.fn.bcPicker.toHex( (elem.val().length > 0) ? elem.val() : colorSet.defaultColor),
-						picker 				= templates.picker.clone(),
-						palette 			= templates.palette.clone(),
-						color;
+		return this.each(function () {
+			var elem 			= $(this),
+				colorSet		= $.extend({}, $.fn.bcPicker.defaults, options),
+				defaultColor	= $.fn.bcPicker.toHex( (elem.val().length > 0) ? elem.val() : colorSet.defaultColor),
+				picker 			= templates.picker.clone(),
+				palette 		= templates.palette.clone(),
+				color;
 
-				// add position relative to root element
-				elem.css('position', 'relative');
+			// add position relative to root element
+			elem.css('position', 'relative');
 
-				// append picker
-				elem.append(picker);
-				picker.css('background-color', defaultColor);
+			// append picker
+			elem.append(picker);
+			picker.css('background-color', defaultColor);
 
-				// append palette
-				elem.append(palette);
+			// append palette
+			elem.append(palette);
 
-				// assembly color palette
-				$.each(colorSet.colors, function (i) {
-            color = templates.color.clone();
-						color.css('background-color', colorSet.colors[i]);
-						palette.append(color);
-        });
+			// assembly color palette
+			$.each(colorSet.colors, function (i) {
+        		color = templates.color.clone();
+				color.css('background-color', colorSet.colors[i]);
+				palette.append(color);
+    		});
 
-			});
+		});
 	}
 
 	/**
@@ -84,6 +84,7 @@ $(document).ready(function(){
 			var pickedColor = elem.css('background-color');
 			// set picker with selected color
 			elem.parent().parent().find('.bcPicker-picker').css('background-color', pickedColor);
+			elem.parent().toggle('fast');
 		},
 
 		/**

@@ -4,12 +4,158 @@
 		<link type="text/css" rel="stylesheet" href="resources/css/bcPicker.css"/>
 		<script type="text/javascript" src="resources/js/jquery.min.js"></script>
 		<script type="text/javascript" src="resources/js/bcPicker.js"></script>
+		<style type="text/css">
+			*{
+			  margin: 0;
+			  padding: 0;
+			  list-style: none;
+			}
+
+			body{
+			  font-family: "proxima-nova-soft", "Proxima Nova Soft", Helvetica, Arial, sans-serif;
+			}
+
+			#container{
+			  width: 100%;
+			  height: 100%;
+			}
+
+			#top{
+			  width: 100%;
+			  height: 150px;
+			  background-color: #eeeeee;
+			}
+
+			#top > h3{
+			  font-size: 13px;
+			  font-weight: 400;
+			  text-transform: uppercase;
+			  padding: 30px 0px 10px 30px;
+			  color: #717171;
+			}
+
+			#top > h4{
+			  width: 300px;
+			  font-size: 13px;
+			  font-weight: 400;
+			  letter-spacing: 1;
+			  margin-left: 30px;
+			  color: #292929;
+			}
+
+			#middle{
+			  width: 100%;
+			  padding: 40px 0 15px 40px;
+			}
+
+			.color-picker{
+			  width: 30px;
+			  height: 30px;
+			  padding: 5px;
+			}
+
+			.display-inline{
+			  display: inline-block;
+			}
+
+			.middle-hex{
+				min-width: 100px;
+				font-size: 13px;
+				color: #bdbdbd;
+				vertical-align: top;
+				margin-top: 13px;
+				margin-left: 10px;
+				text-transform: uppercase;
+			}
+
+			.middle-hex span{
+			  color: #292929;
+			  margin-left: 10px;
+			}
+
+			.bcPicker-palette{
+			  top: 36px !important;
+			}
+
+			#bottom{
+			  padding-left: 40px;
+			}
+
+			#bottom > h4{
+			  font-size: 14px;
+			  font-weight: 400;
+			  text-transform: uppercase;
+			  margin-top: 40px;
+			  margin-bottom: 10px;
+			  color: #292929;
+			}
+
+			#bottom > ul > li{
+			  font-size: 13px;
+			  font-weight: 300;
+			  margin-bottom: 7px;
+			  color: #a9a9a9;
+			}
+
+			#bottom > .code{
+			  width: 300px;
+			  padding: 10px 20px;
+			  border: 1px dashed #dcdcdc;
+			  font-weight: 300;
+			  font-size: 12px;
+			  color: #4e4e4e;
+			}
+
+			#bottom > a{
+			  color: #616161;
+			  font-size: 12px;
+			}
+		</style>
 	</head>
 	<body>
-		<label>Pick a color: </label><div id="bcPicker1" style="width: 15px; height: 15px; margin: 5px; border:1px solid #ccc;"></div>
-		<label>Pick a color: </label><div id="bcPicker2" style="width: 15px; height: 15px; margin: 5px; border:1px solid #ccc;"></div>
+		<div id="container">
+			<div id="top">
+				<h3>Basic Color Picker</h3>
+				<h4>Searching for that perfect color picker has never been easier, use this jQuery color picker in your application.</h4>
+			</div>
+			<div id="middle">
+				<div class="color-container">
+					<div id="bcPicker1" class="color-picker display-inline"></div>
+					<div class="middle-hex  display-inline">HEX <span>#000000</span></div>
+					<div class="middle-hex  display-inline"><span>RGB(0, 0, 0)</span></div>
+				</div>
+				<div class="color-container">
+					<div id="bcPicker2" class="color-picker display-inline"></div>
+					<div class="middle-hex display-inline">HEX <span>#33CCCC</span></div>
+					<div class="middle-hex display-inline"><span>RGB(51, 204, 204)</span></div>
+				</div>
+			</div>
+			<div id="bottom">
+				<h4>Features</h4>
+				<ul>
+					<li>Basic, simple and easy</li>
+					<li>Cross browser support</li>
+					<li>One line installation</li>
+					<li>Works with dynamically added elements</li>
+				</ul>
+				<h4>Code Example</h4>
+				<div class="code">
+					&lt;div id="bcPicker"&gt;&lt;/div&gt;
+					</br></br>
+					$('#bcPicker').bcPicker();
+				</div>
+				<h4>Site</h4>
+				<a href="https://github.com/bobkovalex/Basic-Color-Picker">https://github.com/bobkovalex/Basic-Color-Picker</a>
+			</div>
+		</div>
 		<script type="text/javascript">
 			$('#bcPicker1').bcPicker();
-			$('#bcPicker2').bcPicker({defaultColor: 'deadea'});
+			$('#bcPicker2').bcPicker({defaultColor: '33CCCC'});
+
+			$('.bcPicker-palette').on('click', '.bcPicker-color', function(){
+				var color = $(this).css('background-color');
+				$(this).parent().parent().next().children().text($.fn.bcPicker.toHex(color));
+				$(this).parent().parent().next().next().children().text(color);
+			})
 		</script>
 </html>
