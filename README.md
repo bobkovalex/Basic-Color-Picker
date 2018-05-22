@@ -1,2 +1,2 @@
-# Basic-Color-Picker
-jQuery basic color picker
+# Basic Color Picker
+##### v0.1.0

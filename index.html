@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>Basic Color Picker</title>
+		<link type="text/css" rel="stylesheet" href="resources/css/bcPicker.css"/>
+		<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+		<script type="text/javascript" src="resources/js/bcPicker.js"></script>
+	</head>
+	<body>
+		<label>Pick a color: </label><div id="bcPicker1" style="width: 15px; height: 15px; margin: 5px; border:1px solid #ccc;"></div>
+		<label>Pick a color: </label><div id="bcPicker2" style="width: 15px; height: 15px; margin: 5px; border:1px solid #ccc;"></div>
+		<script type="text/javascript">
+			$('#bcPicker1').bcPicker();
+			$('#bcPicker2').bcPicker({defaultColor: 'deadea'});
+		</script>
+</html>
