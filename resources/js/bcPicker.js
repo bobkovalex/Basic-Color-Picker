@@ -3,7 +3,7 @@
  * Copyright (c) 2018 Alex Bobkov <lilalex85@gmail.com>
  * Licensed under MIT
  * @author Alexandr Bobkov
- * @version 0.2.0
+ * @version 0.2.1
  */
 
 $(document).ready(function(){
@@ -57,7 +57,7 @@ $(document).ready(function(){
 			// assembly color palette
 			$.each(colorSet.colors, function (i) {
         		color = templates.color.clone();
-				color.css('background-color', colorSet.colors[i]);
+				color.css('background-color', $.fn.bcPicker.toHex(colorSet.colors[i]));
 				palette.append(color);
     		});
 
